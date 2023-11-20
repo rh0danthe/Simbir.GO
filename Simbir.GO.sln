@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simbir.GO", "Simbir.GO\Simbir.GO.csproj", "{B08BAFEB-80B9-440E-8D3B-42F7FC9C1250}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B08BAFEB-80B9-440E-8D3B-42F7FC9C1250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B08BAFEB-80B9-440E-8D3B-42F7FC9C1250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B08BAFEB-80B9-440E-8D3B-42F7FC9C1250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B08BAFEB-80B9-440E-8D3B-42F7FC9C1250}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
