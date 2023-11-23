@@ -7,8 +7,21 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Dapper" Version="2.1.21" />
+        <PackageReference Include="dbup" Version="5.0.37" />
+        <PackageReference Include="dbup-postgresql" Version="5.0.37" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.10"/>
+        <PackageReference Include="Npgsql" Version="7.0.6" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Controllers\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Scripts\001_initial.sql" />
+      <EmbeddedResource Include="Scripts\001_initial.sql" />
     </ItemGroup>
 
 </Project>

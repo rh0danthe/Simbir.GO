@@ -44,13 +44,29 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.21, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.10, )"
             },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[7.0.6, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
+            },
+            "dbup": {
+              "target": "Package",
+              "version": "[5.0.37, )"
+            },
+            "dbup-postgresql": {
+              "target": "Package",
+              "version": "[5.0.37, )"
             }
           },
           "imports": [
