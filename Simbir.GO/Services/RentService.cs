@@ -1,6 +1,8 @@
-﻿namespace Simbir.GO.Services;
+﻿using Simbir.GO.Services.Interface;
 
-public class RentService
+namespace Simbir.GO.Services;
+
+public class RentService : IRentService
 {
     
 }

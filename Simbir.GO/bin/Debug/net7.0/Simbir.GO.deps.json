@@ -9,6 +9,7 @@
       "Simbir.GO/1.0.0": {
         "dependencies": {
           "Dapper": "2.1.21",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.14",
           "Microsoft.AspNetCore.OpenApi": "7.0.10",
           "Npgsql": "7.0.6",
           "Swashbuckle.AspNetCore": "6.5.0",
@@ -100,6 +101,17 @@
           "lib/net6.0/dbup-sqlserver.dll": {
             "assemblyVersion": "5.0.37.0",
             "fileVersion": "5.0.37.0"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.14": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.24.0"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "assemblyVersion": "7.0.14.0",
+            "fileVersion": "7.0.1423.52316"
           }
         }
       },
@@ -1475,6 +1487,13 @@
       "sha512": "sha512-nSmm8ImnqY/cyvlUolyn7cl+xekEe2syq2jb6mpqCsGvDUnJNFTQGE2N0R3wtIDBBc/e/waTMzYvVCgQkLxNnw==",
       "path": "dbup-sqlserver/5.0.37",
       "hashPath": "dbup-sqlserver.5.0.37.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-640Jjm2NnpQYHew0I2RyP2PjBKfB1ItSDYHX1TD+ooJov+b+ELPuo/GgrJCNJr3ZI1YmplmsQv88d8JRojZ+fA==",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/7.0.14",
+      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.7.0.14.nupkg.sha512"
     },
     "Microsoft.AspNetCore.OpenApi/7.0.10": {
       "type": "package",

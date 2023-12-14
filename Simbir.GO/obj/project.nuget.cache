@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VgtAT6AeHnTtSeWsjcqddLx7ij3nYo2E+8hEYSONK8dkcApDShX+kBtWez+CA6/f+B6fSx+O7D/ebUJaHhYnFg==",
+  "dgSpecHash": "AWW9Z8o+oVwwr8A3Kn4XbWZlhLR35qQzyGHadqWSbchn6Ely/C87+vH/1I22sbEfcUMteM6YHA1Bvlavla9x/A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Рита\\Desktop\\гавч\\Simbir.GO\\Simbir.GO\\Simbir.GO.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\Рита\\.nuget\\packages\\dbup-core\\5.0.37\\dbup-core.5.0.37.nupkg.sha512",
     "C:\\Users\\Рита\\.nuget\\packages\\dbup-postgresql\\5.0.37\\dbup-postgresql.5.0.37.nupkg.sha512",
     "C:\\Users\\Рита\\.nuget\\packages\\dbup-sqlserver\\5.0.37\\dbup-sqlserver.5.0.37.nupkg.sha512",
+    "C:\\Users\\Рита\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.14\\microsoft.aspnetcore.authentication.jwtbearer.7.0.14.nupkg.sha512",
     "C:\\Users\\Рита\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
     "C:\\Users\\Рита\\.nuget\\packages\\microsoft.azure.services.appauthentication\\1.6.2\\microsoft.azure.services.appauthentication.1.6.2.nupkg.sha512",
     "C:\\Users\\Рита\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

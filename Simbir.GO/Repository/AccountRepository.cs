@@ -2,6 +2,7 @@
 using Simbir.GO.Entities;
 using Dapper;
 using Npgsql;
+using Simbir.GO.Common;
 
 namespace Simbir.GO.Repository;
 
@@ -85,6 +86,27 @@ public class AccountRepository : IAccountRepository
             var query = "DELETE FROM \"Accounts\" WHERE \"Id\" = @id";
             var res = await db.ExecuteAsync(query, new { id = accountId });
             return res > 0;
+        }
+    }
+
+    public async Task<bool> CheckAccount(string username)
+    {
+        await using (var db = new NpgsqlConnection(connectionString))
+        {
+            await db.OpenAsync();
+            return await db.QueryFirstOrDefaultAsync<Account>(
+                "SELECT \"Id\" FROM \"Accounts\" WHERE \"Username\" = @Username", new { Username = username }) != null;
+        }
+    }
+
+    public async Task<Account?> GetAccountData(string username, string password)
+    {
+        await using (var db = new NpgsqlConnection(connectionString))
+        {
+            await db.OpenAsync();
+            return await db.QueryFirstOrDefaultAsync<Account>(
+                "SELECT \"Id\", \"IsAdmin\", \"Username\" FROM \"Accounts\" WHERE \"Username\" = @Username and \"Password\"=@Password",
+                new {Username = username, Password = password});
         }
     }
 }

@@ -11,4 +11,6 @@ public interface IAccountRepository
     public Task<Account> UpdateAsync(Account account);
     public Task<Account> AddMoney(int accountId);
     public Task<bool> DeleteAsync(int accountId);
+    Task<bool> CheckAccount(string username);
+    Task<Account?> GetAccountData(string username, string password);
 }

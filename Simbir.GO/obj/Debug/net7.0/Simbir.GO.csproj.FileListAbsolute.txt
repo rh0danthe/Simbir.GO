@@ -72,3 +72,4 @@ C:\Users\Рита\Desktop\гавч\Simbir.GO\Simbir.GO\obj\Debug\net7.0\refint\S
 C:\Users\Рита\Desktop\гавч\Simbir.GO\Simbir.GO\obj\Debug\net7.0\Simbir.GO.pdb
 C:\Users\Рита\Desktop\гавч\Simbir.GO\Simbir.GO\obj\Debug\net7.0\Simbir.GO.genruntimeconfig.cache
 C:\Users\Рита\Desktop\гавч\Simbir.GO\Simbir.GO\obj\Debug\net7.0\ref\Simbir.GO.dll
+C:\Users\Рита\Desktop\гавч\Simbir.GO\Simbir.GO\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
