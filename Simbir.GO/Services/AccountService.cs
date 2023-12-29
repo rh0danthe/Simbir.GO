@@ -1,4 +1,5 @@
-﻿using Simbir.GO.Entities;
+﻿using Simbir.GO.DTO;
+using Simbir.GO.Entities;
 using Simbir.GO.Interface;
 using Simbir.GO.Services.Interface;
 
@@ -13,18 +14,77 @@ public class AccountService : IAccountService
         this._accountRepository = accountRepository;
     }
     
-    public async Task<Account> CreateAccount(Account account)
+    public async Task<GetAccountResponse> CreateAccountAsync(AccountDto account)
     {
-        return await _accountRepository.CreateAsync(account);
+        var dbAccount = new Account
+        {
+            Username = account.Username,
+            Password = account.Password,
+            IsAdmin = account.IsAdmin,
+            Balance = account.Balance
+        };
+        return MapToResponse(await _accountRepository.CreateAsync(dbAccount));
     }
 
-    public async Task<Account?> GetAccountData(string username, string password)
+    public async Task<GetAccountResponse?> GetAccountDataAsync(string username, string password)
     {
-        return await _accountRepository.GetAccountData(username, password);
+        return MapToResponse(await _accountRepository.GetAccountData(username, password));
     }
 
-    public Task<Account> GetByIdAsync(int accountId)
+    public async Task<ICollection<GetAccountResponse>> GetAllLimitedAsync(int start, int count)
     {
-        throw new NotImplementedException();
+        var accounts = await _accountRepository.GetAllLimitedAsync(start, count);
+        return accounts.Select(ac => MapToResponse(ac)).ToList();
+    }
+
+    public async Task<GetAccountResponse> GetByIdAsync(int accountId)
+    {
+        return MapToResponse(await _accountRepository.GetByIdAsync(accountId));
+    }
+
+    public async Task<GetAccountResponse> UpdateAsync(AccountDto account, int accountId)
+    {
+        var dbAccount = new Account
+        {
+            Id = accountId,
+            Username = account.Username,
+            Password = account.Password,
+            IsAdmin = account.IsAdmin,
+            Balance = account.Balance
+        };
+        return MapToResponse(await _accountRepository.UpdateAsync(dbAccount));
+    }
+
+    public async Task<GetAccountResponse> UpdateInfoAsync(AuthAccountDto account, int accountId)
+    {
+        var dbAccount = new Account
+        {
+            Id = accountId,
+            Username = account.Username,
+            Password = account.Password
+        };
+        return MapToResponse(await _accountRepository.UpdateAsync(dbAccount));
+    }
+
+    public async Task<bool> DeleteAsync(int accountId)
+    {
+        return await _accountRepository.DeleteAsync(accountId);
+    }
+
+    public async Task<GetAccountResponse> AddMoneyAsync(int accountId)
+    {
+        return MapToResponse(await _accountRepository.AddMoney(accountId));
+    }
+
+    private GetAccountResponse MapToResponse(Account account)
+    {
+        var response = new GetAccountResponse
+        {
+            Username = account.Username,
+            Balance = account.Balance,
+            Id = account.Id,
+            IsAdmin = account.IsAdmin
+        };
+        return response;
     }
 }

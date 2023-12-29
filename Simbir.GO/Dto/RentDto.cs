@@ -2,8 +2,8 @@
 
 public class RentDto
 {
-    public long TransportId { get; set; }
-    public long UserId { get; set; }
+    public int TransportId { get; set; }
+    public int UserId { get; set; }
     public DateTime TimeStart { get; set; }
     public DateTime? TimeEnd { get; set; }
     public double PriceOfUnit { get; set; }

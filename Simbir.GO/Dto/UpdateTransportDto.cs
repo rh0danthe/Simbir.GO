@@ -1,8 +1,8 @@
 ﻿namespace Simbir.GO.DTO;
 
-public class TransportDto
+public class UpdateTransportDto
 {
-    public long OwnerId{ get; set; }
+    public int OwnerId{ get; set; }
     public bool CanBeRented { get; set; }
     public string TransportType { get; set; }
     public string Model { get; set; }

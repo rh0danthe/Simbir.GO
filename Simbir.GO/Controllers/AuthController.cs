@@ -22,7 +22,7 @@ public class AuthController : Controller
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] AuthAccountDto req)
     {
-        var account = await _accountService.GetAccountData(req.Username, req.Password);
+        var account = await _accountService.GetAccountDataAsync(req.Username, req.Password);
         
         if (account == null)
             return BadRequest("Bad credentials");
@@ -44,7 +44,7 @@ public class AuthController : Controller
         if (await _authService.CheckAccount(req.Username))
             return BadRequest("email is already taken");
 
-        var candidate = await _accountService.CreateAccount(new Account()
+        var candidate = await _accountService.CreateAccountAsync(new AccountDto()
         {
             Password = req.Password,
             IsAdmin = false,

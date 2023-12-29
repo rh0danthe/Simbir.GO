@@ -1,8 +1,7 @@
-﻿namespace Simbir.GO.Entities;
+﻿namespace Simbir.GO.DTO;
 
-public class Transport
+public class AdminCreateTransportDto
 {
-    public int Id { get; set; }
     public int OwnerId{ get; set; }
     public bool CanBeRented { get; set; }
     public string TransportType { get; set; }
