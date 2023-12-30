@@ -9,10 +9,12 @@ public class RentService : IRentService
 {
     private readonly IRentRepository _rentRepository;
     private readonly ITransportRepository _transportRepository;
-    public RentService(IRentRepository rentRepository, ITransportRepository transportRepository)
+    private readonly IAccountRepository _accountRepository;
+    public RentService(IRentRepository rentRepository, ITransportRepository transportRepository, IAccountRepository accountRepository)
     {
         _rentRepository = rentRepository;
         _transportRepository = transportRepository;
+        _accountRepository = accountRepository;
     }
     public async Task<Rent> CreateAsync(RentDto rent)
     {
@@ -42,9 +44,13 @@ public class RentService : IRentService
             PriceType = priceType
         };
         if (priceType == "Minutes")
-            dbRent.PriceOfUnit = (double)transport.MinutePrice!;
+        {
+            dbRent.PriceOfUnit = (double)transport.MinutePrice!; 
+        }
         else if (priceType == "Days")
+        {
             dbRent.PriceOfUnit = (double)transport.DayPrice!;
+        }
         return await _rentRepository.CreateAsync(dbRent);
     }
 
@@ -73,6 +79,19 @@ public class RentService : IRentService
         transport.Longitude = longitude;
         await _transportRepository.UpdateAsync(transport);
         rent.TimeEnd = DateTime.Now;
+        var difference = rent.TimeEnd - rent.TimeStart;
+        if (rent.PriceType == "Minutes")
+        {
+            rent.FinalPrice = rent.PriceOfUnit * difference.GetValueOrDefault().Minutes;
+        }
+        else if (rent.PriceType == "Days")
+        {
+            rent.FinalPrice = rent.PriceOfUnit * difference.GetValueOrDefault().Days;
+        }
+
+        var user = await _accountRepository.GetByIdAsync(rent.UserId);
+        user.Balance -= (double)rent.FinalPrice!;
+        await _accountRepository.UpdateAsync(user);
         return await _rentRepository.UpdateAsync(rent);
     }
 

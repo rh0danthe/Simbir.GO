@@ -61,6 +61,16 @@ builder.Services.AddScoped<ITransportService, TransportService>();
 builder.Services.AddScoped<IRentService, RentService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("IsAdmin", "true");
+    });
+});
+
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("documentName", new OpenApiInfo() { Title = "My API", Version = "v1" });

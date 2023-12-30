@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS "Accounts" (
 
 CREATE TABLE IF NOT EXISTS "Transport" (
     "Id" serial PRIMARY KEY,
-    "OwnerId" real NOT NULL,
+    "OwnerId" serial NOT NULL REFERENCES "Accounts"("Id"),
     "CanBeRented" boolean NOT NULL,
     "TransportType" text NOT NULL,
     "Model" text NOT NULL,
@@ -23,8 +23,8 @@ CREATE TABLE IF NOT EXISTS "Transport" (
 
 CREATE TABLE IF NOT EXISTS "Rent" (
     "Id" serial PRIMARY KEY,
-    "UserId" real NOT NULL,
-    "TransportId" real NOT NULL,
+    "UserId" serial NOT NULL REFERENCES "Accounts"("Id"),
+    "TransportId" serial NOT NULL REFERENCES "Transport"("Id"),
     "TimeStart" timestamp NOT NULL DEFAULT now(),
     "TimeEnd" timestamp,
     "PriceOfUnit" real NOT NULL,

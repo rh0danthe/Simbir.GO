@@ -107,7 +107,7 @@ public class TransportService : ITransportService
     {
         var dbTransport = new Transport();
         dbTransport.Id = transportId;
-        dbTransport.OwnerId = transport.OwnerId;
+        dbTransport.OwnerId = (await _repository.GetByIdAsync(transportId)).OwnerId;
         dbTransport.CanBeRented = transport.CanBeRented;
         dbTransport.TransportType = transport.TransportType;
         dbTransport.Model = transport.Model;

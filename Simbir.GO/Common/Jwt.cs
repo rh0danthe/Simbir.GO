@@ -17,7 +17,7 @@ public class Jwt
     
     public static bool? GetIsAdmin(string token)
     {
-        return ParserToken(token, "admin") == "true";
+        return ParserToken(token, "admin") == "True";
     }
 
     private static string? ParserToken(string token, string role)

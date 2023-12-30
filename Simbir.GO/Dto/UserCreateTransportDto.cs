@@ -1,8 +1,11 @@
-﻿namespace Simbir.GO.DTO;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Simbir.GO.DTO;
 
 public class UserCreateTransportDto
 {
     public bool CanBeRented { get; set; }
+    [RegularExpression(@"^(Car| Bike| Scooter)$", ErrorMessage = "Inappropriate type")]
     public string TransportType { get; set; }
     public string Model { get; set; }
     public string Color { get; set; }

@@ -72,8 +72,8 @@ public class AccountRepository : IAccountRepository
         await using (var db = new NpgsqlConnection(connectionString))
         {
             await db.OpenAsync();
-            string query = "UPDATE \"Accounts\" SET \"Balance\" = @Balance + 250000 WHERE \"Id\" = @id RETURNING *";
-            var parameters = new { id = accountId};
+            string query = "UPDATE \"Accounts\" SET \"Balance\" = @balance + 250000 WHERE \"Id\" = @id RETURNING *";
+            var parameters = new { id = accountId, balance = (await GetByIdAsync(accountId)).Balance};
             return await db.QueryFirstOrDefaultAsync<Account>(query, parameters);
         }
     }

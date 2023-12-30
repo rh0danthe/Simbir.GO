@@ -57,11 +57,14 @@ public class AccountService : IAccountService
 
     public async Task<GetAccountResponse> UpdateInfoAsync(AuthAccountDto account, int accountId)
     {
+        var user = await _accountRepository.GetByIdAsync(accountId);
         var dbAccount = new Account
         {
             Id = accountId,
             Username = account.Username,
-            Password = account.Password
+            Password = account.Password,
+            Balance = user.Balance,
+            IsAdmin = user.IsAdmin
         };
         return MapToResponse(await _accountRepository.UpdateAsync(dbAccount));
     }
